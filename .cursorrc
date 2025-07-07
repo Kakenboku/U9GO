@@ -1,0 +1,41 @@
+{
+  "name": "U9GO UIKit Template",
+  "description": "一个现代化的 UIKit 风格组件库模板，基于 React + TypeScript + TailwindCSS + shadcn/ui 构建",
+  "tags": ["react", "typescript", "tailwindcss", "uikit", "components", "design-system", "shadcn"],
+  "author": "U9GO Team",
+  "version": "1.0.0",
+  "repository": "https://github.com/Kakenboku/U9GO.git",
+  "features": [
+    "完整的 UIKit 设计系统",
+    "TypeScript 类型支持",
+    "TailwindCSS 样式框架",
+    "shadcn/ui 组件库",
+    "响应式设计",
+    "代码示例和文档",
+    "设计 token 管理",
+    "Lucide 图标库"
+  ],
+  "structure": {
+    "src/components/ui/": "UI 组件目录",
+    "src/uikit/": "设计系统目录",
+    "src/pages/": "页面目录",
+    "src/lib/": "工具函数目录"
+  },
+  "quickStart": {
+    "install": "npm install",
+    "dev": "npm run dev",
+    "build": "npm run build"
+  },
+  "customization": {
+    "colors": "src/uikit/colors.ts",
+    "tokens": "src/uikit/tokens.ts",
+    "theme": "src/uikit/theme.ts",
+    "typography": "src/uikit/typography.tsx"
+  },
+  "roadmap": [
+    "Dark Mode 支持",
+    "更多组件扩展",
+    "主题切换功能",
+    "组件文档生成"
+  ]
+} 
