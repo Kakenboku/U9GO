@@ -10,6 +10,7 @@
 - **TailwindCSS** - 实用优先的 CSS 框架
 - **shadcn/ui** - 高质量组件库
 - **Lucide React** - 精美图标库
+- **tailwind-variants** - 样式变体管理
 
 ## 📦 安装
 
@@ -23,6 +24,20 @@ npm install
 
 # 启动开发服务器
 npm run dev
+```
+
+## 🌙 Dark Mode 支持
+
+项目已预置 Dark Mode 支持，使用 `tailwind-variants` 管理样式状态：
+
+```tsx
+import { ThemeToggle } from "@/components/ui/theme-toggle"
+
+// 在组件中使用
+<ThemeToggle 
+  theme={currentTheme} 
+  onThemeChange={setTheme} 
+/>
 ```
 
 ## 🎨 设计系统
@@ -113,6 +128,17 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 </Card>
 ```
 
+### ThemeToggle 主题切换
+
+```tsx
+import { ThemeToggle } from "@/components/ui/theme-toggle"
+
+<ThemeToggle 
+  theme="light" 
+  onThemeChange={(theme) => console.log(theme)} 
+/>
+```
+
 ## 📁 项目结构
 
 ```
@@ -121,7 +147,8 @@ src/
 │   └── ui/           # UI 组件
 │       ├── button.tsx
 │       ├── input.tsx
-│       └── card.tsx
+│       ├── card.tsx
+│       └── theme-toggle.tsx
 ├── uikit/            # 设计系统
 │   ├── colors.ts     # 颜色规范
 │   ├── tokens.ts     # 设计 token
@@ -149,6 +176,19 @@ npm run preview
 npm run type-check
 ```
 
+## 🎯 Cursor 模板
+
+项目包含 `.cursorrc` 配置文件，支持 Cursor 一键识别模板结构：
+
+- 使用 `cursor-template` 分支获取完整模板
+- 包含项目结构说明和快速开始指南
+- 支持 Cursor 智能代码补全和项目理解
+
+```bash
+# 切换到模板分支
+git checkout cursor-template
+```
+
 ## 📝 许可证
 
 MIT License
@@ -163,3 +203,4 @@ MIT License
 - [TailwindCSS 文档](https://tailwindcss.com/)
 - [shadcn/ui 文档](https://ui.shadcn.com/)
 - [Lucide Icons](https://lucide.dev/)
+- [tailwind-variants](https://www.tailwind-variants.com/)
