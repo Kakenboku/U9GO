@@ -20,7 +20,7 @@ git clone https://github.com/Kakenboku/U9GO.git
 cd U9GO
 
 # 安装依赖
-npm install
+npm install --legacy-peer-deps
 
 # 启动开发服务器
 npm run dev
@@ -38,6 +38,39 @@ import { ThemeToggle } from "@/components/ui/theme-toggle"
   theme={currentTheme} 
   onThemeChange={setTheme} 
 />
+```
+
+## 🎨 品牌元素
+
+### Logo 组件
+
+```tsx
+import { Logo } from "@/components/ui/logo"
+
+// 基础用法
+<Logo />
+
+// 不同尺寸
+<Logo size="sm" />
+<Logo size="md" />
+<Logo size="lg" />
+
+// 不同变体
+<Logo variant="default" />
+<Logo variant="white" />
+<Logo variant="primary" />
+```
+
+### Loading 组件
+
+```tsx
+import { Loading, Spinner } from "@/components/ui/loading"
+
+// 完整加载状态
+<Loading size="md" text="加载中..." />
+
+// 简单旋转器
+<Spinner />
 ```
 
 ## 🎨 设计系统
@@ -148,6 +181,8 @@ src/
 │       ├── button.tsx
 │       ├── input.tsx
 │       ├── card.tsx
+│       ├── logo.tsx      # 品牌 Logo
+│       ├── loading.tsx   # 加载状态
 │       └── theme-toggle.tsx
 ├── uikit/            # 设计系统
 │   ├── colors.ts     # 颜色规范
@@ -158,6 +193,8 @@ src/
 │   └── Example.tsx   # 示例页面
 └── lib/              # 工具函数
     └── utils.ts
+public/
+└── favicon.ico       # 网站图标
 ```
 
 ## 🛠️ 开发
@@ -178,16 +215,26 @@ npm run type-check
 
 ## 🎯 Cursor 模板
 
-项目包含 `.cursorrc` 配置文件，支持 Cursor 一键识别模板结构：
+项目包含详细的 `.cursorrc` 配置文件，支持 Cursor 一键识别模板结构：
 
 - 使用 `cursor-template` 分支获取完整模板
 - 包含项目结构说明和快速开始指南
 - 支持 Cursor 智能代码补全和项目理解
+- 详细的依赖信息和配置说明
 
 ```bash
 # 切换到模板分支
 git checkout cursor-template
 ```
+
+### .cursorrc 配置特性
+
+- **完整的项目结构说明**
+- **详细的依赖分类**
+- **品牌元素配置指南**
+- **设计系统自定义说明**
+- **快速开始命令**
+- **使用示例和最佳实践**
 
 ## 📝 许可证
 

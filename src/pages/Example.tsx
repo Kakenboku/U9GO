@@ -4,6 +4,8 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 import { H1, H2, H3, Body, Caption } from "@/uikit/typography"
 import { Phone, Lock, User, Download, Code, Palette, Copy, Check } from "lucide-react"
 import { useState } from "react"
+import { Logo } from "@/components/ui/logo"
+import { Loading } from "@/components/ui/loading"
 
 const themeColors = [
   { name: "Primary", color: "#007AFF", description: "主色调，用于按钮、链接等" },
@@ -56,7 +58,7 @@ export default function Example() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <H1 className="text-[#007AFF] text-xl">U9GO UIKit</H1>
+              <Logo size="md" />
             </div>
             <div className="flex items-center space-x-4">
               <Button variant="outline" size="sm">
@@ -93,11 +95,16 @@ export default function Example() {
           <div className="lg:col-span-2 space-y-12">
             {/* 介绍 */}
             <section>
-              <H1 className="mb-4">U9GO UIKit 组件库</H1>
-              <Body className="text-lg mb-6">
-                一个现代化的 React 组件库，基于 TypeScript + TailwindCSS 构建，
-                提供高质量、可定制的 UI 组件，帮助开发者快速构建美观的用户界面。
-              </Body>
+              <div className="flex items-center gap-4 mb-6">
+                <Logo size="lg" />
+                <div>
+                  <H1 className="mb-2">UIKit 组件库</H1>
+                  <Body className="text-lg">
+                    一个现代化的 React 组件库，基于 TypeScript + TailwindCSS 构建，
+                    提供高质量、可定制的 UI 组件，帮助开发者快速构建美观的用户界面。
+                  </Body>
+                </div>
+              </div>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 <Card>
@@ -169,7 +176,9 @@ cd U9GO`}
               <CodeBlock language="tsx">
 {`import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"`}
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
+import { Logo } from "@/components/ui/logo"
+import { Loading } from "@/components/ui/loading"`}
               </CodeBlock>
 
               <H3 className="mb-4">使用组件</H3>
@@ -191,7 +200,13 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"`
   <CardContent>
     卡片内容
   </CardContent>
-</Card>`}
+</Card>
+
+// Logo 组件
+<Logo size="md" variant="primary" />
+
+// Loading 组件
+<Loading size="md" text="加载中..." />`}
               </CodeBlock>
             </section>
 
@@ -199,6 +214,26 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"`
             <section id="components">
               <H2 className="mb-6">组件展示</H2>
               
+              <H3 className="mb-4">Logo 品牌标识</H3>
+              <div className="bg-white rounded-lg p-6 mb-6">
+                <div className="flex items-center gap-6 mb-4">
+                  <Logo size="sm" />
+                  <Logo size="md" />
+                  <Logo size="lg" />
+                </div>
+                <Caption>支持 sm / md / lg 三种尺寸</Caption>
+              </div>
+
+              <H3 className="mb-4">Loading 加载状态</H3>
+              <div className="bg-white rounded-lg p-6 mb-6">
+                <div className="flex items-center gap-8 mb-4">
+                  <Loading size="sm" text="小尺寸" />
+                  <Loading size="md" text="中尺寸" />
+                  <Loading size="lg" text="大尺寸" />
+                </div>
+                <Caption>支持自定义尺寸和文本</Caption>
+              </div>
+
               <H3 className="mb-4">按钮 Button</H3>
               <div className="bg-white rounded-lg p-6 mb-6">
                 <div className="flex gap-2 mb-4">

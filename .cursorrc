@@ -1,41 +1,150 @@
 {
   "name": "U9GO UIKit Template",
-  "description": "一个现代化的 UIKit 风格组件库模板，基于 React + TypeScript + TailwindCSS + shadcn/ui 构建",
-  "tags": ["react", "typescript", "tailwindcss", "uikit", "components", "design-system", "shadcn"],
-  "author": "U9GO Team",
+  "description": "一个现代化的 UIKit 风格组件库模板，基于 React + TypeScript + TailwindCSS + shadcn/ui 构建，包含完整的品牌元素和设计系统",
   "version": "1.0.0",
-  "repository": "https://github.com/Kakenboku/U9GO.git",
+  "author": "U9GO Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kakenboku/U9GO.git",
+    "branch": "cursor-template"
+  },
+  "tags": [
+    "react",
+    "typescript", 
+    "tailwindcss",
+    "uikit",
+    "components",
+    "design-system",
+    "shadcn",
+    "branding",
+    "dark-mode",
+    "responsive"
+  ],
   "features": [
     "完整的 UIKit 设计系统",
     "TypeScript 类型支持",
     "TailwindCSS 样式框架",
     "shadcn/ui 组件库",
+    "品牌元素 (Logo, Loading, Favicon)",
+    "Dark Mode 支持",
     "响应式设计",
     "代码示例和文档",
     "设计 token 管理",
-    "Lucide 图标库"
+    "Lucide 图标库",
+    "tailwind-variants 样式管理"
   ],
-  "structure": {
-    "src/components/ui/": "UI 组件目录",
-    "src/uikit/": "设计系统目录",
-    "src/pages/": "页面目录",
-    "src/lib/": "工具函数目录"
+  "projectStructure": {
+    "src/components/ui/": {
+      "description": "UI 组件目录",
+      "files": [
+        "button.tsx - 按钮组件",
+        "input.tsx - 输入框组件", 
+        "card.tsx - 卡片组件",
+        "logo.tsx - 品牌 Logo 组件",
+        "loading.tsx - 加载状态组件",
+        "theme-toggle.tsx - 主题切换组件"
+      ]
+    },
+    "src/uikit/": {
+      "description": "设计系统目录",
+      "files": [
+        "colors.ts - 颜色规范",
+        "tokens.ts - 设计 token",
+        "theme.ts - 主题配置",
+        "typography.tsx - 排版组件"
+      ]
+    },
+    "src/pages/": {
+      "description": "页面目录",
+      "files": [
+        "Example.tsx - 示例文档页面"
+      ]
+    },
+    "src/lib/": {
+      "description": "工具函数目录",
+      "files": [
+        "utils.ts - 通用工具函数"
+      ]
+    },
+    "public/": {
+      "description": "静态资源目录",
+      "files": [
+        "favicon.ico - 网站图标"
+      ]
+    }
   },
   "quickStart": {
-    "install": "npm install",
+    "install": "npm install --legacy-peer-deps",
     "dev": "npm run dev",
-    "build": "npm run build"
+    "build": "npm run build",
+    "preview": "npm run preview"
   },
   "customization": {
-    "colors": "src/uikit/colors.ts",
-    "tokens": "src/uikit/tokens.ts",
-    "theme": "src/uikit/theme.ts",
-    "typography": "src/uikit/typography.tsx"
+    "branding": {
+      "logo": "src/components/ui/logo.tsx",
+      "loading": "src/components/ui/loading.tsx",
+      "favicon": "public/favicon.ico"
+    },
+    "design": {
+      "colors": "src/uikit/colors.ts",
+      "tokens": "src/uikit/tokens.ts", 
+      "theme": "src/uikit/theme.ts",
+      "typography": "src/uikit/typography.tsx"
+    },
+    "components": {
+      "path": "src/components/ui/",
+      "style": "tailwind-variants"
+    }
+  },
+  "dependencies": {
+    "core": [
+      "react@^18.3.1",
+      "react-dom@^18.3.1",
+      "typescript@~5.6.2"
+    ],
+    "styling": [
+      "tailwindcss@^3.4.3",
+      "tailwind-variants@^0.2.0",
+      "class-variance-authority@^0.7.0",
+      "clsx@^2.1.0",
+      "tailwind-merge@^2.2.1"
+    ],
+    "ui": [
+      "@shadcn/ui@^0.0.4",
+      "lucide-react@^0.344.0"
+    ],
+    "build": [
+      "vite@^5.2.0",
+      "@vitejs/plugin-react@^4.3.4"
+    ]
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build", 
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit"
+  },
+  "configuration": {
+    "typescript": "tsconfig.json",
+    "tailwind": "tailwind.config.js",
+    "vite": "vite.config.ts",
+    "postcss": "postcss.config.js"
   },
   "roadmap": [
-    "Dark Mode 支持",
-    "更多组件扩展",
+    "更多组件扩展 (Modal, Dropdown, Table 等)",
     "主题切换功能",
-    "组件文档生成"
-  ]
+    "组件文档自动生成",
+    "Storybook 集成",
+    "单元测试覆盖",
+    "国际化支持"
+  ],
+  "usage": {
+    "import": "import { Button, Logo, Loading } from '@/components/ui'",
+    "example": "<Button variant='primary'><Logo size='sm' /> 点击我</Button>"
+  },
+  "support": {
+    "issues": "https://github.com/Kakenboku/U9GO/issues",
+    "discussions": "https://github.com/Kakenboku/U9GO/discussions"
+  }
 } 
