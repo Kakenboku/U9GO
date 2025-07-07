@@ -1,14 +1,11 @@
 {
   "name": "U9GO UIKit Template",
-  "description": "一个现代化的 UIKit 风格组件库模板，基于 React + TypeScript + TailwindCSS + shadcn/ui 构建，包含完整的品牌元素和设计系统",
+  "description": "Cursor 用户可直接引用的 UIKit 组件库模板，基于 React + TypeScript + TailwindCSS + shadcn/ui",
   "version": "1.0.0",
   "author": "U9GO Team",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Kakenboku/U9GO.git",
-    "branch": "cursor-template"
-  },
+  "repository": "https://github.com/Kakenboku/U9GO.git",
+  "cursorTemplate": true,
   "tags": [
     "react",
     "typescript", 
@@ -17,62 +14,66 @@
     "components",
     "design-system",
     "shadcn",
-    "branding",
-    "dark-mode",
-    "responsive"
+    "cursor-template"
   ],
   "features": [
     "完整的 UIKit 设计系统",
-    "TypeScript 类型支持",
+    "TypeScript 类型支持", 
     "TailwindCSS 样式框架",
     "shadcn/ui 组件库",
     "品牌元素 (Logo, Loading, Favicon)",
     "Dark Mode 支持",
     "响应式设计",
-    "代码示例和文档",
-    "设计 token 管理",
-    "Lucide 图标库",
     "tailwind-variants 样式管理"
   ],
-  "projectStructure": {
-    "src/components/ui/": {
-      "description": "UI 组件目录",
-      "files": [
-        "button.tsx - 按钮组件",
-        "input.tsx - 输入框组件", 
-        "card.tsx - 卡片组件",
-        "logo.tsx - 品牌 Logo 组件",
-        "loading.tsx - 加载状态组件",
-        "theme-toggle.tsx - 主题切换组件"
-      ]
-    },
-    "src/uikit/": {
-      "description": "设计系统目录",
-      "files": [
-        "colors.ts - 颜色规范",
-        "tokens.ts - 设计 token",
-        "theme.ts - 主题配置",
-        "typography.tsx - 排版组件"
-      ]
-    },
-    "src/pages/": {
-      "description": "页面目录",
-      "files": [
-        "Example.tsx - 示例文档页面"
-      ]
-    },
-    "src/lib/": {
-      "description": "工具函数目录",
-      "files": [
-        "utils.ts - 通用工具函数"
-      ]
-    },
-    "public/": {
-      "description": "静态资源目录",
-      "files": [
-        "favicon.ico - 网站图标"
-      ]
+  "developmentGuide": {
+    "start": "这是一个完整的 UIKit 组件库模板，Cursor 用户可直接基于此配置进行开发",
+    "workflow": [
+      "1. 克隆此项目作为基础模板",
+      "2. 根据 .cursorrc 配置了解项目结构",
+      "3. 使用预设的 UI 组件和设计系统",
+      "4. 按照设计规范扩展新组件",
+      "5. 自定义品牌元素和主题"
+    ],
+    "keyFiles": {
+      "designSystem": "src/uikit/ - 设计系统核心文件",
+      "components": "src/components/ui/ - UI 组件目录",
+      "examples": "src/pages/Example.tsx - 完整示例页面",
+      "config": "tailwind.config.js - TailwindCSS 配置"
     }
+  },
+  "uiConfiguration": {
+    "designTokens": {
+      "colors": {
+        "primary": "#007AFF",
+        "background": "#F2F2F7", 
+        "danger": "#FF3B30",
+        "success": "#34C759",
+        "muted": "#E5E5EA"
+      },
+      "spacing": ["xs: 4px", "sm: 8px", "md: 16px", "lg: 24px", "xl: 32px"],
+      "borderRadius": ["sm: 4px", "md: 8px", "lg: 12px", "xl: 16px"]
+    },
+    "components": {
+      "Button": "支持 default/outline/danger 变体，sm/md/lg 尺寸",
+      "Input": "支持 default/error 状态，带图标支持",
+      "Card": "完整的卡片组件，包含 Header/Content/Footer",
+      "Logo": "品牌 Logo，支持多种尺寸和变体",
+      "Loading": "加载状态组件，包含完整和简单版本",
+      "ThemeToggle": "主题切换组件，支持 Dark Mode"
+    },
+    "styling": {
+      "framework": "tailwind-variants",
+      "approach": "基于设计 token 的样式管理",
+      "darkMode": "class 模式，支持主题切换"
+    }
+  },
+  "projectStructure": {
+    "src/components/ui/": "UI 组件目录 - 基于 shadcn/ui 风格",
+    "src/uikit/": "设计系统目录 - 颜色、间距、主题配置",
+    "src/pages/": "页面目录 - 示例和文档页面",
+    "src/lib/": "工具函数 - cn 工具函数等",
+    "public/": "静态资源 - favicon 等"
   },
   "quickStart": {
     "install": "npm install --legacy-peer-deps",
@@ -82,69 +83,41 @@
   },
   "customization": {
     "branding": {
-      "logo": "src/components/ui/logo.tsx",
-      "loading": "src/components/ui/loading.tsx",
-      "favicon": "public/favicon.ico"
+      "logo": "修改 src/components/ui/logo.tsx",
+      "loading": "修改 src/components/ui/loading.tsx", 
+      "favicon": "替换 public/favicon.ico"
     },
     "design": {
-      "colors": "src/uikit/colors.ts",
-      "tokens": "src/uikit/tokens.ts", 
-      "theme": "src/uikit/theme.ts",
-      "typography": "src/uikit/typography.tsx"
+      "colors": "修改 src/uikit/colors.ts",
+      "tokens": "修改 src/uikit/tokens.ts",
+      "theme": "修改 src/uikit/theme.ts"
     },
     "components": {
-      "path": "src/components/ui/",
-      "style": "tailwind-variants"
+      "add": "在 src/components/ui/ 下添加新组件",
+      "style": "使用 tailwind-variants 管理样式变体"
     }
   },
   "dependencies": {
-    "core": [
-      "react@^18.3.1",
-      "react-dom@^18.3.1",
-      "typescript@~5.6.2"
-    ],
-    "styling": [
-      "tailwindcss@^3.4.3",
-      "tailwind-variants@^0.2.0",
-      "class-variance-authority@^0.7.0",
-      "clsx@^2.1.0",
-      "tailwind-merge@^2.2.1"
-    ],
-    "ui": [
-      "@shadcn/ui@^0.0.4",
-      "lucide-react@^0.344.0"
-    ],
-    "build": [
-      "vite@^5.2.0",
-      "@vitejs/plugin-react@^4.3.4"
-    ]
+    "core": ["react@^18.3.1", "react-dom@^18.3.1", "typescript@~5.6.2"],
+    "styling": ["tailwindcss@^3.4.3", "tailwind-variants@^0.2.0", "clsx@^2.1.0", "tailwind-merge@^2.2.1"],
+    "ui": ["@shadcn/ui@^0.0.4", "lucide-react@^0.344.0"],
+    "build": ["vite@^5.2.0", "@vitejs/plugin-react@^4.3.4"]
   },
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build", 
-    "preview": "vite preview",
-    "type-check": "tsc --noEmit"
-  },
-  "configuration": {
-    "typescript": "tsconfig.json",
-    "tailwind": "tailwind.config.js",
-    "vite": "vite.config.ts",
-    "postcss": "postcss.config.js"
-  },
-  "roadmap": [
-    "更多组件扩展 (Modal, Dropdown, Table 等)",
-    "主题切换功能",
-    "组件文档自动生成",
-    "Storybook 集成",
-    "单元测试覆盖",
-    "国际化支持"
-  ],
   "usage": {
     "import": "import { Button, Logo, Loading } from '@/components/ui'",
-    "example": "<Button variant='primary'><Logo size='sm' /> 点击我</Button>"
+    "example": "<Button variant='primary'><Logo size='sm' /> 点击我</Button>",
+    "styling": "使用 tailwind-variants 定义组件样式变体"
   },
+  "developmentTips": [
+    "遵循 UIKit 设计规范，保持组件一致性",
+    "使用 tailwind-variants 管理复杂的样式变体",
+    "组件应该支持 Dark Mode",
+    "保持 TypeScript 类型安全",
+    "参考 Example.tsx 了解组件使用方式"
+  ],
   "support": {
-    "issues": "https://github.com/Kakenboku/U9GO/issues",
-    "discussions": "https://github.com/Kakenboku/U9GO/discussions"
+    "template": "这是一个 Cursor 模板项目，可直接克隆使用",
+    "reference": "参考 src/pages/Example.tsx 了解完整用法",
+    "structure": "按照 .cursorrc 中的项目结构进行开发"
   }
 } 
