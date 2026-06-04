@@ -15,20 +15,49 @@ const inputVariants = tv({
   },
 })
 
-export interface InputProps 
+export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
-    VariantProps<typeof inputVariants> {}
+    VariantProps<typeof inputVariants> {
+  leftIcon?: React.ReactNode
+  rightIcon?: React.ReactNode
+}
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, variant, ...props }, ref) => {
+  ({ className, variant, leftIcon, rightIcon, ...props }, ref) => {
+    if (!leftIcon && !rightIcon) {
+      return (
+        <input
+          className={cn(inputVariants({ variant, className }))}
+          ref={ref}
+          {...props}
+        />
+      )
+    }
+
     return (
-      <input 
-        className={cn(inputVariants({ variant, className }))} 
-        ref={ref} 
-        {...props} 
-      />
+      <div className="relative flex items-center">
+        {leftIcon && (
+          <span className="absolute left-3 flex items-center text-gray-400 pointer-events-none">
+            {leftIcon}
+          </span>
+        )}
+        <input
+          className={cn(
+            inputVariants({ variant, className }),
+            leftIcon && 'pl-9',
+            rightIcon && 'pr-9',
+          )}
+          ref={ref}
+          {...props}
+        />
+        {rightIcon && (
+          <span className="absolute right-3 flex items-center text-gray-400">
+            {rightIcon}
+          </span>
+        )}
+      </div>
     )
   }
 )
 
-Input.displayName = "Input" 
+Input.displayName = "Input"

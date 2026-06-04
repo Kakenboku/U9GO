@@ -1,237 +1,162 @@
-# U9GO UIKit - Cursor 模板项目
+# U9GO UIKit
 
-一个专为 Cursor 用户设计的 UIKit 风格组件库模板，基于 React + TypeScript + TailwindCSS + shadcn/ui 构建。
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?logo=typescript)](https://www.typescriptlang.org)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-06B6D4?logo=tailwindcss)](https://tailwindcss.com)
 
-## 🎯 **Cursor 模板特性**
+**A UIKit-style React component and design-system template** built with iOS 26 visual language — glass morphism, spring-physics animations, semantic design tokens, and full dark mode. Optimized for AI-assisted development with Cursor.
 
-这是一个完整的 Cursor 模板项目，用户可以直接：
+> Live demo → **[kakenboku.github.io/U9GO](https://kakenboku.github.io/U9GO)**
 
-1. **克隆项目**作为基础模板
-2. **引用 .cursorrc 配置**了解项目结构
-3. **按照预设 UI 配置**进行开发
-4. **使用完整的组件库**和设计系统
+---
 
-## 🚀 技术栈
+## Why U9GO?
 
-- **Vite** - 快速的前端构建工具
-- **React 18** - 用户界面库
-- **TypeScript** - 类型安全的 JavaScript
-- **TailwindCSS** - 实用优先的 CSS 框架
-- **shadcn/ui** - 高质量组件库
-- **Lucide React** - 精美图标库
-- **tailwind-variants** - 样式变体管理
+Most React starter templates ship bare-bones components with no visual identity. U9GO is opinionated:
 
-## 📦 快速开始
+- **iOS 26 design language** — `backdrop-blur`, layered glass surfaces, rounded everything
+- **Spring-physics animations** — Framer Motion presets that feel native
+- **Design token system** — colors, spacing, and radius defined once in `src/uikit/tokens.ts`
+- **AI-dev ready** — `.cursorrc` config with project context, component conventions, and prompt hints pre-loaded
+- **Page templates included** — Login, Dashboard, Settings, iOS-style list — ready to copy and ship
+
+---
+
+## Demo Pages
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Component Showcase | `/` | All components in one view |
+| Interactive Gallery | `/example` | Live component playground |
+| iOS 26 Style | `/ios26` | Glass-morphism demo with imagery |
+| Login | `/login` | Sign-in / Sign-up page template |
+| Dashboard | `/dashboard` | Admin dashboard with stats + table |
+| Settings | `/settings` | iOS-style settings with toggles |
+
+---
+
+## Quick Start
 
 ```bash
-# 克隆项目
 git clone https://github.com/Kakenboku/U9GO.git
 cd U9GO
-
-# 安装依赖
-npm install --legacy-peer-deps
-
-# 启动开发服务器
+npm install
 npm run dev
 ```
 
-## 🎨 UI 配置预设
+Visit `http://localhost:5173`
 
-项目包含完整的 UI 配置预设：
+---
 
-### 设计 Token
+## Components
+
+| Component | Description |
+|-----------|-------------|
+| `Button` | 7 variants · 4 sizes · loading state · icon slots |
+| `Card` | Standard card with Header / Content / Footer |
+| `CardGlass` | Glass-morphism card with blur and hover lift |
+| `Input` | Focus glow · icon prefix/suffix · error state |
+| `Loading` | Spinner with optional label |
+| `Logo` | Image + text fallback · 3 sizes |
+| `ThemeToggle` | Light / dark mode switcher |
+| `Navigation` | Horizontal nav bar |
+| `GlassCircleButton` | Circular glass icon button |
+
+---
+
+## Design Tokens
+
 ```typescript
-// 颜色规范
-primary: '#007AFF'
-background: '#F2F2F7'
-danger: '#FF3B30'
-success: '#34C759'
-muted: '#E5E5EA'
+// src/uikit/tokens.ts
+UIKitTokens.spacing     // xs → xxl (4px → 48px)
+UIKitTokens.borderRadius // sm → full
+UIKitTokens.fontSize     // xs → xxl
+UIKitTokens.fontWeight   // normal → bold
 
-// 间距规范
-xs: 4px, sm: 8px, md: 16px, lg: 24px, xl: 32px
-
-// 圆角规范
-sm: 4px, md: 8px, lg: 12px, xl: 16px
+// src/uikit/colors.ts
+UIKitColors.primary   // #007AFF — iOS blue
+UIKitColors.success   // #34C759
+UIKitColors.danger    // #FF3B30
+UIKitColors.warning   // #FF9500
 ```
 
-### 组件预设
-- **Button**: default/outline/danger 变体，sm/md/lg 尺寸
-- **Input**: default/error 状态，带图标支持
-- **Card**: 完整的卡片组件，包含 Header/Content/Footer
-- **Logo**: 品牌 Logo，支持多种尺寸和变体
-- **Loading**: 加载状态组件，包含完整和简单版本
-- **ThemeToggle**: 主题切换组件，支持 Dark Mode
+---
 
-## 🌙 Dark Mode 支持
+## Animation Presets
 
-项目已预置 Dark Mode 支持，使用 `tailwind-variants` 管理样式状态：
-
-```tsx
-import { ThemeToggle } from "@/components/ui/theme-toggle"
-
-// 在组件中使用
-<ThemeToggle 
-  theme={currentTheme} 
-  onThemeChange={setTheme} 
-/>
+```typescript
+// src/lib/motion.ts
+motionVariants.fadeInUp      // slide up + fade in on mount
+motionVariants.fadeInDown    // slide down (for headers)
+motionVariants.scaleIn       // scale from 95% + fade
+motionVariants.glassHover    // scale 1.02 on hover, 0.98 on tap
 ```
 
-## 🎨 品牌元素
+---
 
-### Logo 组件
+## Tech Stack
 
-```tsx
-import { Logo } from "@/components/ui/logo"
+| Tool | Version | Role |
+|------|---------|------|
+| React | 18.3 | UI framework |
+| TypeScript | 5.6 | Type safety |
+| Tailwind CSS | 3.4 | Utility styling |
+| tailwind-variants | 0.2 | Component variant management |
+| Framer Motion | 12 | Animations |
+| Vite | 5 | Build tool |
+| lucide-react | 0.344 | Icons |
 
-// 基础用法
-<Logo />
+---
 
-// 不同尺寸
-<Logo size="sm" />
-<Logo size="md" />
-<Logo size="lg" />
-
-// 不同变体
-<Logo variant="default" />
-<Logo variant="white" />
-<Logo variant="primary" />
-```
-
-### Loading 组件
-
-```tsx
-import { Loading, Spinner } from "@/components/ui/loading"
-
-// 完整加载状态
-<Loading size="md" text="加载中..." />
-
-// 简单旋转器
-<Spinner />
-```
-
-## 🧩 组件使用
-
-### Button 按钮
-
-```tsx
-import { Button } from "@/components/ui/button"
-
-// 基础用法
-<Button>默认按钮</Button>
-
-// 变体
-<Button variant="outline">轮廓按钮</Button>
-<Button variant="danger">危险按钮</Button>
-
-// 尺寸
-<Button size="sm">小按钮</Button>
-<Button size="md">中按钮</Button>
-<Button size="lg">大按钮</Button>
-```
-
-### Input 输入框
-
-```tsx
-import { Input } from "@/components/ui/input"
-
-// 基础用法
-<Input placeholder="请输入内容" />
-
-// 变体
-<Input variant="error" placeholder="错误状态" />
-```
-
-### Card 卡片
-
-```tsx
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-
-<Card>
-  <CardHeader>
-    <CardTitle>卡片标题</CardTitle>
-  </CardHeader>
-  <CardContent>
-    卡片内容
-  </CardContent>
-</Card>
-```
-
-## 📁 项目结构
+## Project Structure
 
 ```
 src/
-├── components/
-│   └── ui/           # UI 组件目录 - 基于 shadcn/ui 风格
-│       ├── button.tsx
-│       ├── input.tsx
-│       ├── card.tsx
-│       ├── logo.tsx      # 品牌 Logo
-│       ├── loading.tsx   # 加载状态
-│       └── theme-toggle.tsx
-├── uikit/            # 设计系统目录 - 颜色、间距、主题配置
-│   ├── colors.ts     # 颜色规范
-│   ├── tokens.ts     # 设计 token
-│   ├── theme.ts      # 主题配置
-│   └── typography.tsx # 排版组件
-├── pages/            # 页面目录 - 示例和文档页面
-│   └── Example.tsx   # 完整示例页面
-└── lib/              # 工具函数 - cn 工具函数等
-    └── utils.ts
-public/
-└── favicon.ico       # 网站图标
+├── components/ui/     # Reusable UI components
+│   ├── button.tsx
+│   ├── card.tsx
+│   ├── card-glass.tsx
+│   ├── input.tsx
+│   ├── loading.tsx
+│   ├── logo.tsx
+│   ├── navigation.tsx
+│   ├── theme-toggle.tsx
+│   └── glass-circle-button.tsx
+├── uikit/             # Design system
+│   ├── tokens.ts      # Spacing, radius, typography
+│   └── colors.ts      # Semantic color palette
+├── lib/
+│   ├── motion.ts      # Framer Motion presets
+│   └── utils.ts       # cn() and helpers
+└── pages/             # Full page templates
+    ├── Example.tsx    # Component gallery
+    ├── iOS26Demo.tsx  # Glass-style demo
+    ├── LoginDemo.tsx  # Sign-in template
+    ├── DashboardDemo.tsx
+    └── SettingsDemo.tsx
 ```
 
-## 🛠️ 开发指南
+---
 
-### 开发流程
-1. 克隆此项目作为基础模板
-2. 根据 `.cursorrc` 配置了解项目结构
-3. 使用预设的 UI 组件和设计系统
-4. 按照设计规范扩展新组件
-5. 自定义品牌元素和主题
+## Contributing
 
-### 开发提示
-- 遵循 UIKit 设计规范，保持组件一致性
-- 使用 `tailwind-variants` 管理复杂的样式变体
-- 组件应该支持 Dark Mode
-- 保持 TypeScript 类型安全
-- 参考 `src/pages/Example.tsx` 了解组件使用方式
+We welcome contributions of all kinds. See [CONTRIBUTING.md](CONTRIBUTING.md) for setup instructions, component checklist, and commit format.
 
-## 🎯 Cursor 模板使用
+---
 
-### 作为模板项目
-```bash
-# 克隆项目
-git clone https://github.com/Kakenboku/U9GO.git
+## Roadmap
 
-# 切换到模板分支
-git checkout cursor-template
+See [ROADMAP.md](ROADMAP.md) for planned components, page templates, npm publishing, and CLI tooling.
 
-# 开始开发
-npm install --legacy-peer-deps
-npm run dev
-```
+---
 
-### .cursorrc 配置特性
-- **完整的项目结构说明**：每个目录的功能和用途
-- **UI 配置预设**：设计 token、组件规范、样式管理
-- **开发指南**：工作流程和最佳实践
-- **自定义说明**：如何修改品牌元素和设计系统
-- **使用示例**：组件导入和使用方式
+## Changelog
 
-## 📝 许可证
+See [CHANGELOG.md](CHANGELOG.md) for version history.
 
-MIT License
+---
 
-## 🤝 贡献
+## License
 
-欢迎提交 Issue 和 Pull Request！
-
-## 🔗 相关链接
-
-- [项目地址](https://github.com/Kakenboku/U9GO)
-- [TailwindCSS 文档](https://tailwindcss.com/)
-- [shadcn/ui 文档](https://ui.shadcn.com/)
-- [Lucide Icons](https://lucide.dev/)
-- [tailwind-variants](https://www.tailwind-variants.com/)
+[MIT](LICENSE) © 2024 U9GO Team

@@ -1,38 +1,50 @@
 {
-  "name": "u9go-uikit",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@u9go/uikit",
+  "version": "0.1.0",
   "type": "module",
-  "description": "一个现代化的 UIKit 风格组件库，基于 React + TypeScript + TailwindCSS 构建",
+  "description": "A UIKit-style React component and design-system template optimized for Cursor and AI-assisted development. Built with iOS 26 design language.",
   "keywords": [
     "react",
     "typescript",
     "tailwindcss",
     "uikit",
     "components",
-    "design-system"
+    "design-system",
+    "ios26",
+    "glass-morphism",
+    "cursor",
+    "ai-development",
+    "framer-motion"
   ],
   "author": "U9GO Team",
   "license": "MIT",
+  "homepage": "https://kakenboku.github.io/U9GO",
   "repository": {
     "type": "git",
     "url": "https://github.com/Kakenboku/U9GO.git"
   },
+  "bugs": {
+    "url": "https://github.com/Kakenboku/U9GO/issues"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:pages": "VITE_BASE_URL=/U9GO/ tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "deploy": "npm run build:pages && gh-pages -d dist"
   },
   "dependencies": {
     "@shadcn/ui": "^0.0.4",
     "@tailwindcss/postcss": "^4.1.11",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "framer-motion": "^12.23.0",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router-dom": "^7.6.3",
     "tailwind-merge": "^2.2.1",
     "tailwind-variants": "^0.2.0"
   },

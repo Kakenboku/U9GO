@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './com
 import { Logo } from './components/ui/logo'
 import { Loading } from './components/ui/loading'
 import { ThemeToggle } from './components/ui/theme-toggle'
+import { Navigation } from './components/ui/navigation'
 import { 
   Code, 
   Download, 
@@ -41,10 +42,11 @@ function App() {
             <Logo size="md" />
             <div>
               <h1 className="text-xl font-bold">U9GO UIKit</h1>
-              <p className="text-sm text-muted-foreground">Cursor 模板项目</p>
+              <p className="text-sm text-muted-foreground">React UIKit · MIT License</p>
             </div>
           </div>
           <div className="flex items-center space-x-4">
+            <Navigation />
             <ThemeToggle theme={theme} onThemeChange={setTheme} />
             <Button 
               variant="outline" 
@@ -69,7 +71,7 @@ function App() {
               U9GO UIKit 模板
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              专为 Cursor 用户设计的 UIKit 风格组件库模板，基于 React + TypeScript + TailwindCSS + shadcn/ui 构建
+              A UIKit-style React component library with iOS 26 design language — glass morphism, spring animations, dark mode. Built for AI-assisted development with Cursor.
             </p>
             <div className="flex items-center justify-center space-x-4 mb-8">
               <Button size="lg" onClick={handleTemplateDownload} disabled={isLoading}>
@@ -84,7 +86,7 @@ function App() {
               </Button>
               <Button variant="outline" size="lg" onClick={() => window.open('/example', '_blank')}>
                 <ExternalLink className="w-5 h-5 mr-2" />
-                查看示例
+                Component Demo
               </Button>
             </div>
             <div className="flex items-center justify-center space-x-6 text-sm text-muted-foreground">
@@ -101,6 +103,30 @@ function App() {
                 TypeScript 类型安全
               </div>
             </div>
+            {/* v1.1 版本说明区块 */}
+            <div className="mb-8 p-4 bg-blue-50 border-l-4 border-blue-400 rounded text-left max-w-2xl mx-auto">
+              <span className="inline-block bg-blue-400 text-white text-xs font-bold px-2 py-0.5 rounded mr-2 align-middle">v1.1</span>
+              <span className="font-semibold">iOS 26 UIKit 风格全新上线</span>
+              <div className="text-sm text-blue-900 mt-1">
+                设计 tokens 全面升级，Button/Card 等组件适配新版色彩、圆角、间距、字体规范。<br />
+                详见 <code className="bg-gray-100 px-1 rounded">src/uikit/</code>，体验更现代的 UI 体系。
+              </div>
+              {/* 组件演示示例 */}
+              <div className="flex flex-wrap gap-4 mt-4">
+                <Button size="lg">新版主按钮</Button>
+                <Button variant="outline" size="lg">新版描边按钮</Button>
+                <Button variant="danger" size="lg">新版危险按钮</Button>
+                <Card className="w-64">
+                  <CardHeader>
+                    <CardTitle>新版 Card</CardTitle>
+                    <CardDescription>iOS 26 风格圆角与背景色</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-sm text-gray-700">可用于信息展示、分组等场景</div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -111,7 +137,7 @@ function App() {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4">Cursor 模板特性</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              这是一个完整的 Cursor 模板项目，用户可以直接克隆使用，按照预设配置进行开发
+              A complete open-source template. Clone it, customize it, ship it. Pre-configured for Cursor with .cursorrc, design tokens, and a full component library.
             </p>
           </div>
           
@@ -377,7 +403,7 @@ function App() {
               <Logo size="sm" />
               <div>
                 <p className="font-semibold">U9GO UIKit</p>
-                <p className="text-sm text-muted-foreground">Cursor 模板项目</p>
+                <p className="text-sm text-muted-foreground">React UIKit · MIT License</p>
               </div>
             </div>
             <div className="flex items-center space-x-4">
@@ -387,12 +413,21 @@ function App() {
               </Button>
               <Button variant="outline" size="sm" onClick={() => window.open('/example', '_blank')}>
                 <ExternalLink className="w-4 h-4 mr-2" />
-                示例页面
+                Examples
+              </Button>
+              <Button variant="outline" size="sm" onClick={() => window.open('/ios26', '_blank')}>
+                iOS26 Demo
+              </Button>
+              <Button variant="outline" size="sm" onClick={() => window.open('/login', '_blank')}>
+                Login
+              </Button>
+              <Button variant="outline" size="sm" onClick={() => window.open('/dashboard', '_blank')}>
+                Dashboard
               </Button>
             </div>
           </div>
           <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-            <p>MIT License • 专为 Cursor 用户设计的 UIKit 组件库模板</p>
+            <p>MIT License • Open-source React UIKit for AI-assisted development</p>
           </div>
         </div>
       </footer>
