@@ -4,10 +4,11 @@
 [![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?logo=typescript)](https://www.typescriptlang.org)
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-06B6D4?logo=tailwindcss)](https://tailwindcss.com)
+[![Deploy](https://github.com/Kakenboku/U9GO/actions/workflows/deploy.yml/badge.svg)](https://github.com/Kakenboku/U9GO/actions/workflows/deploy.yml)
 
 **A UIKit-style React component and design-system template** built with iOS 26 visual language — glass morphism, spring-physics animations, semantic design tokens, and full dark mode. Optimized for AI-assisted development with Cursor.
 
-> Live demo → **[kakenboku.github.io/U9GO](https://kakenboku.github.io/U9GO)**
+> **Live demo** → [kakenboku.github.io/U9GO](https://kakenboku.github.io/U9GO)
 
 ---
 
